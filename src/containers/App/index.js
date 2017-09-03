@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCard } from '../../actions';
-import CardList from '../../components/CardList'
+import NewCardForm from '../NewCardForm';
+import KanbanBoard from '../KanbanBoard';
+import Card from '../../components/Card';
+import Queue from "../InQueue";
+import InProgress from "../InProgress";
+import Done from "../Done";
 import './App.css';
 
 class App extends Component {
@@ -10,39 +14,19 @@ class App extends Component {
 
   }
 
-  render() {
-    console.log(this.props);
+  render () {
     return (
       <div>
-        <CardList
-          cards={this.props.cards}
-        />
+        <div className="kanbanHeader">Kanban</div>
+        <NewCardForm />
+        <KanbanBoard />
       </div>
     );
   }
 }
 
 
-// Transfer to store
-const mapStateToProps = (state) => {
-  return {
-    cards: state.cards
-  }
-}
-
-// Allows components to use actions
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addCard: (card) => {
-      dispatch(addCard(card));
-    }
-  }
-}
+export default App;
 
 
-const ConnectedApp = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
 
-export default ConnectedApp;

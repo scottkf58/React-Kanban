@@ -1,29 +1,26 @@
-import { ADD_CARD } from '../actions';
-import { REMOVE_CARD } from '../actions';
-
-const initialState = { cards: ['Hearts', 'Clubs', 'Diamonds', 'Spades'] };
-
-const cards = (state = initialState, action) => {
+const kanbanReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD_CARD:
-      return {
-        cards: [...state.cards, action.card]
-      };
-      break;
+    case "ADD_CARD":
+      return [
+        ...state,
+        {
+          id: action.id,
+          title: action.title,
+          priority: action.priority,
+          createdBy: action.createdBy,
+          assignedTo: action.assignedTo,
+          status: action.status
+        }
+      ];
 
-    case REMOVE_CARD:
-      return {
-        cards: state.cards.filter( (card) => {
-          return card !== action.card;
-        })
-      };
-      break;
+    case "DELETE_CARD":
+      let remove = state.filter(card => card.id !== parseInt(action.id));
+      return remove;
 
     default:
       return state;
   }
 };
 
-
-export default cards;
+export default kanbanReducer;
 

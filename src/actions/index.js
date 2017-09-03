@@ -1,4 +1,4 @@
-let nextCardId = 0;
+let cardId = 0;
 
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
@@ -6,7 +6,7 @@ export const DELETE_CARD = 'DELETE_CARD';
 export const addCard = (card) => {
   return {
     type: ADD_CARD,
-    id: nextCardId++,
+    id: cardId++,
     status: 'queue',
     ...card
   };

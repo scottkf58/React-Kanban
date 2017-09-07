@@ -11,6 +11,7 @@ class KanbanBoard extends Component {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
+
   }
 
   handleDelete (event) {
@@ -18,7 +19,7 @@ class KanbanBoard extends Component {
   }
 
   handleMoveLeft (event) {
-
+    this.props.moveCardLeft(event.target.id);
   }
 
   handleMoveRight (event) {

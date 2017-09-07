@@ -10,7 +10,8 @@ class InProgress extends Component {
   render() {
     return (
       <div className="inProgress">
-      <div className="columnHeading">In Progress</div>
+        <div className="columnHeading">In Progress</div>
+        <div className="cardContainer">
         {
           this.props.cards
             .filter( (card) => {
@@ -21,6 +22,7 @@ class InProgress extends Component {
                 key={card.id}
                 {...card}
               />)}
+        </div>
       </div>
     );
   }

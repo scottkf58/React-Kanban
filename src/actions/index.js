@@ -2,6 +2,7 @@ let cardId = 0;
 
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+export const MOVE_LEFT = 'MOVE_LEFT';
 export const MOVE_RIGHT = 'MOVE_RIGHT';
 
 export const addCard = (card) => {
@@ -17,6 +18,12 @@ export const deleteCard = (id) => {
   return {
     type: DELETE_CARD,
     id
+  };
+};
+
+export const moveCardLeft = (card) => {
+  return {
+    type: MOVE_LEFT
   };
 };
 

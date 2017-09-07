@@ -10,18 +10,20 @@ class Done extends Component {
   render() {
     return (
       <div className="done">
-      <div className="columnHeading">Done</div>
-        {
-          this.props.cards
-            .filter( (card) => {
-              card.status === "done"
-            })
-            .map( (card) =>
-              <Card
-                key={card.id}
-                {...card}
-              />)
-        }
+        <div className="columnHeading">Done</div>
+        <div className="cardContainer">
+          {
+            this.props.cards
+              .filter( (card) => {
+                card.status === "done"
+              })
+              .map( (card) =>
+                <Card
+                  key={card.id}
+                  {...card}
+                />)
+          }
+        </div>
       </div>
     );
   }

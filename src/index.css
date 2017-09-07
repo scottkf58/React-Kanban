@@ -24,7 +24,7 @@ body {
 .kanbanBoard {
   display: flex;
   justify-content: space-between;
-  height: 500px;
+  height: 800px;
   width: 100%; }
 
 .inQueue,
@@ -75,5 +75,5 @@ body {
   float: right; }
 
 .link {
-  text-decoration: underline;
-  text-transform: uppercase; }
+  text-align: right;
+  text-decoration: underline; }

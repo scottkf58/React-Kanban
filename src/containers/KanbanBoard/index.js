@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteCard } from '../../actions';
+import { moveCardRight } from '../../actions';
 import InQueue from '../InQueue';
 import InProgress from '../InProgress';
 import Done from '../Done';
@@ -16,10 +17,21 @@ class KanbanBoard extends Component {
     this.props.deleteCard(event.target.id);
   }
 
+  handleMoveLeft (event) {
+
+  }
+
+  handleMoveRight (event) {
+    this.props.moveCardRight(event.target.id);
+  }
+
   render() {
     return (
       <div className="kanbanBoard">
-        <InQueue handleDelete={this.handleDelete} />
+        <InQueue
+        handleDelete={this.handleDelete}
+        handleMoveRight={this.handleMoveRight}
+        />
         <InProgress handleDelete={this.handleDelete} />
         <Done handleDelete={this.handleDelete} />
       </div>
@@ -37,6 +49,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard: id => {
       dispatch(deleteCard(id));
+    },
+    moveCardRight: id => {
+      dispatch(moveCardRight(id));
     }
   };
 };

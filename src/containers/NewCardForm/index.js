@@ -49,6 +49,7 @@ class NewCardForm extends Component {
             name="title"
             placeholder="Title"
             onChange={this.handleChange}
+            value={this.state.title}
           />
           <select
             name="priority"
@@ -65,12 +66,16 @@ class NewCardForm extends Component {
             name="createdBy"
             placeholder="Created By"
             onChange={this.handleChange}
+            value={this.state.createdBy}
+
           />
           <input
             type="text"
             name="assignedTo"
             placeholder="Assigned To"
             onChange={this.handleChange}
+            value={this.state.assignedTo}
+
           />
           <button type="submit">Add New Task</button>
         </form>

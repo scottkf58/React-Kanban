@@ -15,7 +15,10 @@ body {
   margin: auto; }
 
 .kanbanHeader {
-  font-size: 25px;
+  font-size: 40px;
+  padding: 10px;
+  color: white;
+  background-color: black;
 }
 
 .kanbanBoard {

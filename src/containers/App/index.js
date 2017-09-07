@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Draggable from 'react-draggable';
 import { connect } from 'react-redux';
 import NewCardForm from '../NewCardForm';
 import KanbanBoard from '../KanbanBoard';

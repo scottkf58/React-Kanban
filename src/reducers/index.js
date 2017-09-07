@@ -1,6 +1,6 @@
 const kanbanReducer = (state = [], action) => {
   switch (action.type) {
-    case "ADD_CARD":
+    case 'ADD_CARD':
       return [
         ...state,
         {
@@ -13,9 +13,18 @@ const kanbanReducer = (state = [], action) => {
         }
       ];
 
-    case "DELETE_CARD":
+    case 'DELETE_CARD':
       let remove = state.filter(card => card.id !== parseInt(action.id));
       return remove;
+
+    case 'MOVE_RIGHT':
+      return [
+        ...state,
+        {
+          status: action.status
+        }
+      ];
+
 
     default:
       return state;

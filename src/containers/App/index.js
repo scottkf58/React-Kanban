@@ -9,7 +9,7 @@ import Done from "../Done";
 import './App.css';
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super();
 
   }

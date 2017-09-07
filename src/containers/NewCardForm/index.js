@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addCard } from "../../actions";
 
 class NewCardForm extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -17,13 +17,13 @@ class NewCardForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange (event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit (event) {
     event.preventDefault();
     this.props.addCard({
       title: this.state.title,

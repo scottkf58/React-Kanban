@@ -6,13 +6,13 @@ import InProgress from '../InProgress';
 import Done from '../Done';
 
 class KanbanBoard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete(event) {
+  handleDelete (event) {
     this.props.deleteCard(event.target.id);
   }
 

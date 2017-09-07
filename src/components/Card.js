@@ -9,7 +9,10 @@ const Card = ({ id, title, priority, createdBy, assignedTo, handleDelete }) =>
     <div>{assignedTo}</div>
 
     <div>{createdBy}</div>
-    <div onClick={handleDelete} id={id} className="link">
+    <div
+      onClick={handleDelete}
+      id={id}
+      className="link">
       DELETE
     </div>
   </div>;

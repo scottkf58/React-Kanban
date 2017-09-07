@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Card from "../../components/Card.js";
 
 class InProgress extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
   }
 

@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import cardsReducer from './reducers';
+import ReduxThunk from 'redux-thunk';
 import App from './containers/App';
+import reducers from './reducers';
+import { createStore, applyMiddleware } from 'redux';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
-const store = createStore(cardsReducer);
+
+
+const store = createStore(
+  reducers
+);
 
 
 ReactDOM.render(

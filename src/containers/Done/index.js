@@ -31,7 +31,7 @@ class Done extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state
+    cards: state.cards
   };
 };
 

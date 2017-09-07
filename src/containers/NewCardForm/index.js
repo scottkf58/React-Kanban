@@ -84,9 +84,11 @@ class NewCardForm extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {};
-// };
+const mapStateToProps = (state) => {
+  return {
+    cards: state.cards
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -97,7 +99,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const ConnectedApp = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(NewCardForm);
 export default ConnectedApp;

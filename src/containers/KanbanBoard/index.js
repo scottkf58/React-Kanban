@@ -11,8 +11,7 @@ class KanbanBoard extends Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleMoveRight = this.handleMoveRight.bind(this);
-
-
+    this.handleMoveLeft = this.handleMoveLeft.bind(this);
   }
 
   handleDelete (event) {
@@ -22,11 +21,22 @@ class KanbanBoard extends Component {
   handleMoveRight (card) {
     return (event) => {
       event.preventDefault();
-      // card.status = 'progress';
       if (card.status === 'queue') {
         card.status = 'progress';
       } else if (card.status === 'progress') {
         card.status = 'done';
+      }
+      this.props.updateCard(card);
+    };
+  }
+
+  handleMoveLeft (card) {
+    return (event) => {
+      event.preventDefault();
+      if (card.status === 'done') {
+        card.status = 'progress';
+      } else if (card.status === 'progress') {
+        card.status = 'queue';
       }
       this.props.updateCard(card);
     };
@@ -42,8 +52,12 @@ class KanbanBoard extends Component {
         <InProgress
           handleDelete={this.handleDelete}
           handleMoveRight={this.handleMoveRight}
+          handleMoveLeft={this.handleMoveLeft}
         />
-        <Done handleDelete={this.handleDelete} />
+        <Done
+          handleDelete={this.handleDelete}
+          handleMoveLeft={this.handleMoveLeft}
+        />
       </div>
     );
   }

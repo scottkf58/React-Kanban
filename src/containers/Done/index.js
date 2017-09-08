@@ -21,6 +21,7 @@ class Done extends Component {
                   key={card.id}
                   handleDelete={this.props.handleDelete}
                   {...card}
+                  handleMoveLeft={this.props.handleMoveLeft(card)}
                 />)
           }
         </div>

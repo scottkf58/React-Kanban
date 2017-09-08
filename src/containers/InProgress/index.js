@@ -23,6 +23,7 @@ class InProgress extends Component {
                 handleDelete={this.props.handleDelete}
                 {...card}
                 handleMoveRight={this.props.handleMoveRight(card)}
+                handleMoveLeft={this.props.handleMoveLeft(card)}
               />)}
         </div>
       </div>

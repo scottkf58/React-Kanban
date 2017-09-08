@@ -14,13 +14,15 @@ class InProgress extends Component {
         <div className="cardContainer">
         {
           this.props.cards
-            .filter( (card) => {
+            .filter( (card) =>
               card.status === "progress"
-            })
+            )
             .map( (card) =>
               <Card
                 key={card.id}
+                handleDelete={this.props.handleDelete}
                 {...card}
+                handleMoveRight={this.props.handleMoveRight(card)}
               />)}
         </div>
       </div>

@@ -2,8 +2,7 @@ let cardId = 0;
 
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
-export const MOVE_LEFT = 'MOVE_LEFT';
-export const MOVE_RIGHT = 'MOVE_RIGHT';
+export const UPDATE_CARD = 'UPDATE_CARD';
 
 export const addCard = (card) => {
   return {
@@ -21,17 +20,10 @@ export const deleteCard = (id) => {
   };
 };
 
-export const moveCardLeft = (card) => {
+export const updateCard = (card) => {
   return {
-    type: MOVE_LEFT
-  };
-};
-
-export const moveCardRight = (card) => {
-  return {
-    type: MOVE_RIGHT,
-    status: 'progress',
-    ...card
+    type: UPDATE_CARD,
+    card
   };
 };
 

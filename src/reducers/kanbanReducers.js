@@ -17,14 +17,13 @@ const kanbanReducers = (state = [], action) => {
       let remove = state.filter(card => card.id !== parseInt(action.id));
       return remove;
 
-    case 'MOVE_RIGHT':
-      return [
-        ...state,
-        {
-          status: action.status
-        }
-      ];
+    case 'UPDATE_CARD':
+      let updateStatus = state.filter(card => card.id === parseInt(action.id));
 
+      return [
+        ...state.filter(card => card.id !== parseInt(action.card.id)),
+          {...action.card}
+      ];
 
     default:
       return state;
@@ -32,4 +31,5 @@ const kanbanReducers = (state = [], action) => {
 };
 
 export default kanbanReducers;
+
 

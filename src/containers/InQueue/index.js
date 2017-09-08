@@ -20,6 +20,7 @@ class InQueue extends Component {
                   key={card.id}
                   handleDelete={this.props.handleDelete}
                   {...card}
+                  handleMoveRight={this.props.handleMoveRight(card)}
                 />
           )}
         </div>

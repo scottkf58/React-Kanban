@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteCard } from '../../actions';
-import { moveCardRight } from '../../actions';
+import { deleteCard, updateCard } from '../../actions';
 import InQueue from '../InQueue';
 import InProgress from '../InProgress';
 import Done from '../Done';
@@ -11,6 +10,8 @@ class KanbanBoard extends Component {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleMoveRight = this.handleMoveRight.bind(this);
+
 
   }
 
@@ -18,22 +19,30 @@ class KanbanBoard extends Component {
     this.props.deleteCard(event.target.id);
   }
 
-  handleMoveLeft (event) {
-    this.props.moveCardLeft(event.target.id);
-  }
-
-  handleMoveRight (event) {
-    this.props.moveCardRight(event.target.id);
+  handleMoveRight (card) {
+    return (event) => {
+      event.preventDefault();
+      // card.status = 'progress';
+      if (card.status === 'queue') {
+        card.status = 'progress';
+      } else if (card.status === 'progress') {
+        card.status = 'done';
+      }
+      this.props.updateCard(card);
+    };
   }
 
   render() {
     return (
       <div className="kanbanBoard">
         <InQueue
-        handleDelete={this.handleDelete}
-        handleMoveRight={this.handleMoveRight}
+          handleDelete={this.handleDelete}
+          handleMoveRight={this.handleMoveRight}
         />
-        <InProgress handleDelete={this.handleDelete} />
+        <InProgress
+          handleDelete={this.handleDelete}
+          handleMoveRight={this.handleMoveRight}
+        />
         <Done handleDelete={this.handleDelete} />
       </div>
     );
@@ -51,8 +60,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteCard: id => {
       dispatch(deleteCard(id));
     },
-    moveCardRight: id => {
-      dispatch(moveCardRight(id));
+    updateCard: card => {
+      dispatch(updateCard(card));
     }
   };
 };

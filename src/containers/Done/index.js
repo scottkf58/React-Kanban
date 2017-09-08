@@ -14,12 +14,12 @@ class Done extends Component {
         <div className="cardContainer">
           {
             this.props.cards
-              .filter( (card) => {
-                card.status === "done"
-              })
+              .filter( (card) =>
+                card.status === "done")
               .map( (card) =>
                 <Card
                   key={card.id}
+                  handleDelete={this.props.handleDelete}
                   {...card}
                 />)
           }

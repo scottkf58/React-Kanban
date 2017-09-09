@@ -2,7 +2,7 @@ import React from 'react';
 import Draggable from 'react-draggable';
 
 
-const Card = ({ id, title, priority, createdBy, assignedTo, handleDelete, handleMoveLeft, handleMoveRight }) =>
+const Card = ({ id, title, priority, assignedTo, createdBy, status, handleDelete, handleMoveLeft, handleMoveRight }) =>
   <div className={priority}>
     <div>{title}</div>
 
@@ -11,26 +11,29 @@ const Card = ({ id, title, priority, createdBy, assignedTo, handleDelete, handle
     <div>{assignedTo}</div>
 
     <div>{createdBy}</div>
+
+    <div>{status}</div>
+
     <br/>
-    <div
-      onClick={handleDelete}
-      id={id}
-      className="link">
-      DELETE
-    </div>
-    <br/>
-    <div
-      onClick={handleMoveLeft}
-      id={id}
-      className="link">
-      Move Left
-    </div>
-    <br/>
-    <div
-      onClick={handleMoveRight}
-      id={id}
-      className="link">
-      Move Right
+    <div>
+      <button
+        onClick={handleDelete}
+        id={id}
+        className="button">
+        DELETE
+      </button>
+      <button
+        onClick={handleMoveLeft}
+        id={id}
+        className="button">
+        Move Left
+      </button>
+      <button
+        onClick={handleMoveRight}
+        id={id}
+        className="button">
+        Move Right
+      </button>
     </div>
   </div>;
 

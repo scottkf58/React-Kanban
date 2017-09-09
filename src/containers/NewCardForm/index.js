@@ -43,7 +43,7 @@ class NewCardForm extends Component {
   render() {
     return (
       <div className="formContainer">
-        <form onSubmit={this.handleSubmit}>
+        <form action="/cards" method="post" onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="title"

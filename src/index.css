@@ -3,39 +3,52 @@ body {
   margin: 0;
   padding: 0;
   font-size: 12px;
-  font-family: arial; }
+  font-family: arial;
+}
 
 .kanbanHeader {
   font-size: 40px;
   padding: 10px;
   color: white;
-  background-color: black; }
+  background-color: black;
+}
 
 .kanbanBoard {
   display: flex;
   justify-content: space-between;
   height: 800px;
-  width: 100%; }
+  width: 100%;
+}
+
+input {
+  height: 20px;
+  width: 18%;
+  font-size: 16px;
+}
 
 .inQueue,
 .inProgress,
 .done {
   width: 33%;
   background: white;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .columnHeading {
   font-size: 20px;
   text-align: center;
-  margin: 10px; }
+  margin: 10px;
+}
 
 .cardContainer {
   height: 92%;
-  overflow: auto; }
+  overflow: auto;
+}
 
 .inProgress {
   border-left: 1px solid;
-  border-right: 1px solid; }
+  border-right: 1px solid;
+}
 
 .low,
 .medium,
@@ -43,27 +56,29 @@ body {
 .blocker {
   margin: 5px;
   padding: 5px;
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 .low {
   background: lightblue;
-  border: 1px; }
+  border: 1px;
+}
 
 .medium {
   background: lightgreen;
-  border: 1px solid; }
+  border: 1px solid;
+}
 
 .high {
   background: red;
-  border: 1px solid; }
+  border: 1px solid;
+}
 
 .blocker {
   background: lightgrey;
-  border: 1px solid; }
+  border: 1px solid;
+}
 
 .floatRight {
-  float: right; }
-
-.link {
-  text-align: right;
-  text-decoration: underline; }
+  float: right;
+}

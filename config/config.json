@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "scottfujimoto",
+    "password": null,
+    "database": "kanban_board",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "scottfujimoto",
+    "password": null,
+    "database": "kanban_board",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "scottfujimoto",
+    "password": null,
+    "database": "kanban_board",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

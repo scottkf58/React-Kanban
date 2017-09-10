@@ -11,6 +11,7 @@ class NewCardForm extends Component {
       priority: "low",
       createdBy: "",
       assignedTo: ""
+
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +30,7 @@ class NewCardForm extends Component {
       title: this.state.title,
       priority: this.state.priority,
       createdBy: this.state.createdBy,
-      assignedTo: this.state.assignedTo
+      assignedTo: this.state.assignedTo,
     });
 
     this.setState({
@@ -75,7 +76,6 @@ class NewCardForm extends Component {
             placeholder="Assigned To"
             onChange={this.handleChange}
             value={this.state.assignedTo}
-
           />
           <button type="submit">Add New Task</button>
         </form>

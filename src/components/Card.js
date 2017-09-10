@@ -11,9 +11,6 @@ const Card = ({ id, title, priority, assignedTo, createdBy, status, handleDelete
     <div>{assignedTo}</div>
 
     <div>{createdBy}</div>
-
-    <div>{status}</div>
-
     <br/>
     <div>
       <button

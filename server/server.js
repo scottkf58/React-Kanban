@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const bp = require('body-parser');
-
 const { Card } = require('../models');
 const db = require('../models');
+
 
 const PORT = process.env.PORT || 3001;
 
 app.use(bp.urlencoded());
+
 
 app.get('/cards', (req, res)=> {
   Card.findAll()
@@ -25,26 +26,28 @@ app.post('/cards', (req, res) => {
     createdBy: req.body.createdBy,
     status: req.body.status
   })
-  .then( () => {
-    Card.findAll()
-      .then( (cards) => {
-        res.json(cards);
-      })
-      .catch( (err) => {
-        throw err;
-      });
+  .then( (card) => {
+    return Card.findAll();
+  })
+  .then( (cards) => {
+    res.json(cards);
+  })
+  .catch( (err) => {
+    throw err;
   });
 });
 
-app.delete('/cards/:id/', (req, res) => {
+app.delete('/cards/:id', (req, res) => {
   Card.destroy({
     where: {
       id: req.params.id
     }
   })
   .then( (card) => {
-    console.log('Deleted Card');
-    res.end();
+    return Card.findAll();
+  })
+  .then( (cards) => {
+    res.json(cards);
   })
   .catch( (err) => {
     throw err;

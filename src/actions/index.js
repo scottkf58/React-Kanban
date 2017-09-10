@@ -18,21 +18,20 @@ export const loadCards = (cards) => {
 
 export const getCards = () => {
   return (dispatch) => {
-    return axios.get("http://localhost:3000/cards")
-      .then(response => {
+    return axios.get("/cards")
+      .then( (response) => {
         dispatch(loadCards(response.data));
       })
-      .catch(error => {
-        throw(error);
+      .catch( (error) => {
+        console.log(error);
       });
   };
 };
 
 export const addCard = (card) => {
   card.status = 'queue';
-
   return (dispatch) => {
-    axios.post("http://localhost:3000/cards", queryString.stringify(card))
+    axios.post("/cards", queryString.stringify(card))
       .then( (cards) => {
         dispatch({
           type: LOAD_CARDS,
@@ -44,9 +43,8 @@ export const addCard = (card) => {
 
 export const deleteCard = (id) => {
   return (dispatch) => {
-    axios.delete(`http://localhost:3000/cards/${id}`)
+    axios.delete(`/cards/${id}`)
       .then( (cards) => {
-        console.log('delete data', cards.data);
         dispatch({
           type: LOAD_CARDS,
           cards: cards.data
@@ -55,14 +53,20 @@ export const deleteCard = (id) => {
   };
 };
 
-
 export const updateCard = (card) => {
-  return {
-    type: UPDATE_CARD,
-    card
+  return (dispatch) => {
+    axios.put(`/cards/${card.id}/edit`, queryString.stringify(card))
+    .then( (cards) => {
+      dispatch({
+        type: LOAD_CARDS,
+        cards: cards.data
+      });
+    })
+    .catch( (err) => {
+      console.log(err);
+    });
   };
 };
-
 
 
 

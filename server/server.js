@@ -18,7 +18,6 @@ app.get('/cards', (req, res)=> {
 });
 
 app.post('/cards', (req, res) => {
-  console.log(req.body);
   Card.create({
     title: req.body.title,
     priority: req.body.priority,
@@ -33,7 +32,7 @@ app.post('/cards', (req, res) => {
     res.json(cards);
   })
   .catch( (err) => {
-    throw err;
+    console.log(err);
   });
 });
 
@@ -50,8 +49,22 @@ app.delete('/cards/:id', (req, res) => {
     res.json(cards);
   })
   .catch( (err) => {
-    throw err;
+    console.log(err);
   });
+});
+
+
+app.put('/cards/:id/edit', (req, res) => {
+  Card.findById(req.params.id)
+    .then( (card) => {
+      card.update(req.body)
+        .then( () => {
+          return Card.findAll();
+        })
+        .then( (cards) => {
+          res.json(cards);
+        });
+    });
 });
 
 

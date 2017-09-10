@@ -19,10 +19,6 @@ const kanbanReducers = (state = [], action) => {
         }
       ];
 
-    // case 'DELETE_CARD':
-    //   let remove = state.filter(card => card.id !== parseInt(action.id));
-    //   return remove;
-
     case 'UPDATE_CARD':
       let updateStatus = state.filter(card => card.id === parseInt(action.id));
 

@@ -25,6 +25,7 @@ class KanbanBoard extends Component {
         card.status = 'progress';
       } else if (card.status === 'progress') {
         card.status = 'done';
+        //this.props.updateCardStatus(card.id, card.status)
       }
       this.props.updateCard(card);
     };

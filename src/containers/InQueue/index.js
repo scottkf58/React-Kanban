@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Card from "../../components/Card.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Card from '../../components/Card.js';
 
 class InQueue extends Component {
   constructor (props) {
@@ -14,7 +14,7 @@ class InQueue extends Component {
         <div className="cardContainer">
           {
             this.props.cards
-              .filter( (card) => card.status === "queue")
+              .filter( (card) => card.status === 'queue')
               .map( (card) =>
                 <Card
                   key={card.id}

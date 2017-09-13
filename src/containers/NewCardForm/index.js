@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addCard } from "../../actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addCard } from '../../actions';
 
 class NewCardForm extends Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      title: "",
-      priority: "low",
-      createdBy: "",
-      assignedTo: ""
+      title: '',
+      priority: 'low',
+      createdBy: '',
+      assignedTo: ''
 
     };
 

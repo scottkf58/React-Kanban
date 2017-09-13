@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Card from "../../components/Card.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Card from '../../components/Card.js';
 
 class InProgress extends Component {
   constructor (props) {
@@ -15,7 +15,7 @@ class InProgress extends Component {
         {
           this.props.cards
             .filter( (card) =>
-              card.status === "progress"
+              card.status === 'progress'
             )
             .map( (card) =>
               <Card

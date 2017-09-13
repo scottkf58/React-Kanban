@@ -1,8 +1,7 @@
 import React from 'react';
-import Draggable from 'react-draggable';
 
 
-const Card = ({ id, title, priority, assignedTo, createdBy, status, handleDelete, handleMoveLeft, handleMoveRight }) =>
+const Card = ({ id, title, priority, assignedTo, createdBy, handleDelete, handleMoveLeft, handleMoveRight }) =>
   <div className={priority}>
     <div>{title}</div>
 

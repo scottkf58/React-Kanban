@@ -18,7 +18,7 @@ export const loadCards = (cards) => {
 
 export const getCards = () => {
   return (dispatch) => {
-    return axios.get("/cards")
+    axios.get('/cards')
       .then( (response) => {
         dispatch(loadCards(response.data));
       })
@@ -31,7 +31,7 @@ export const getCards = () => {
 export const addCard = (card) => {
   card.status = 'queue';
   return (dispatch) => {
-    axios.post("/cards", queryString.stringify(card))
+    axios.post('/cards', queryString.stringify(card))
       .then( (cards) => {
         dispatch({
           type: LOAD_CARDS,
